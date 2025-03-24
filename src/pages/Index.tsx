@@ -9,9 +9,13 @@ import Hero from "@/components/Hero";
 import CampaignGrid from "@/components/Campaign/CampaignGrid";
 import Header from "@/components/Header";
 import BlurredCard from "@/components/ui/BlurredCard";
+import { useWeb3 } from "@/context/Web3Context";
+
 
 const Index = () => {
-  const featuredCampaigns = getMockCampaigns().slice(0, 3);
+  const { campaigns } = useWeb3();
+  const featuredCampaigns = campaigns.slice(0, 3);
+  //const featuredCampaigns = getMockCampaigns().slice(0, 3); 
   
   return (
     <div>
