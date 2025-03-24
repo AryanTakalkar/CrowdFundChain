@@ -1,7 +1,7 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useCallback, useContext, useEffect, useState } from "react";
 import { ethers } from "ethers";
 import { toast } from "sonner";
-import { getAllCampaigns, getUserCampaigns, getCampaign, Campaign } from "@/utils/web3";
+import { getAllCampaigns, getUserCampaigns, getCampaign, Campaign,getMockCampaigns,getMockUserCampaigns } from "@/utils/web3";
 
 type Web3ContextType = {
   account: string | null;
@@ -139,14 +139,24 @@ export const Web3Provider: React.FC<{ children: React.ReactNode }> = ({ children
     }
   };
   
-  const refreshCampaigns = async () => {
+  // const refreshCampaigns = async () => {
+  //   if (provider && account) {
+  //     console.log("Refreshing campaigns for account:", account);
+  //     await loadCampaigns(provider, account);
+  //   } else {
+  //     console.warn("Cannot refresh campaigns: no provider or account");
+  //   }
+  // };
+
+
+  const refreshCampaigns = useCallback(async () => {
     if (provider && account) {
       console.log("Refreshing campaigns for account:", account);
       await loadCampaigns(provider, account);
     } else {
       console.warn("Cannot refresh campaigns: no provider or account");
     }
-  };
+  }, [provider, account]);
 
   const connectWallet = async (providerType: "metamask" | "walletconnect" | "coinbase") => {
     setIsConnecting(true);
