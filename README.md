@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # CrowdFundChain - Decentralized Crowdfunding Platform
 
 ## Overview
@@ -100,4 +99,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Website: [crowdfundchain.com](https://crowdfundchain.com)
 - Email: support@crowdfundchain.com
 - Twitter: [@CrowdFundChain](https://twitter.com/crowdfundchain)
->>>>>>> bugs-fix
